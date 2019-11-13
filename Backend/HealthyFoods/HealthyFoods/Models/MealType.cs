@@ -9,10 +9,9 @@ namespace HealthyFoods.Models
     {
         public int ID { get; set; }
         public string Type { get; set; }
-        
 
-
-        //public virtual ICollection<Albums> Albums { get; set; }
+        public int MainIngredientId { get; set; }
+        public MainIngredient MainIngredient { get; set; }
 
         public MealType()
         {

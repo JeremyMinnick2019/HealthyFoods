@@ -13,18 +13,14 @@ namespace HealthyFoods.Models
         public string Instructions { get; set; }
 
 
-        //public virtual ICollection<Albums> Albums { get; set; }
+        public virtual ICollection<MainIngredient> MainIngredient { get; set; }
 
         public Recipe()
         {
         }
 
-
-<<<<<<< Updated upstream
-        public Recipe(int id, string ingredient)
-=======
         public Recipe(int id, string title, string calorie , string instructions )
->>>>>>> Stashed changes
+
         {
             ID = id;
             Title = title;
