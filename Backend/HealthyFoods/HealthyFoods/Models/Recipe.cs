@@ -19,12 +19,8 @@ namespace HealthyFoods.Models
         {
         }
 
-
-<<<<<<< Updated upstream
-        public Recipe(int id, string ingredient)
-=======
         public Recipe(int id, string title, string calorie , string instructions )
->>>>>>> Stashed changes
+
         {
             ID = id;
             Title = title;
