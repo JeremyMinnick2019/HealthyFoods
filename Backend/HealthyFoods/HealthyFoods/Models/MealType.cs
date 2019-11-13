@@ -7,7 +7,7 @@ namespace HealthyFoods.Models
 {
     public class MealType
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Type { get; set; }
 
         public int MainIngredientId { get; set; }
@@ -20,7 +20,7 @@ namespace HealthyFoods.Models
 
         public MealType(int id, string type)
         {
-            ID = id;
+            Id = id;
             Type = type;
 
         }
