@@ -12,12 +12,12 @@ namespace HealthyFoods.Models
 
         //public virtual ICollection<Albums> Albums { get; set; }
 
-        public MainIngredient()
+        public Recipe()
         {
         }
 
 
-        public MainIngredient(int id, string ingredient)
+        public Recipe(int id, string ingredient)
         {
             ID = id;
             Ingredient = ingredient;
