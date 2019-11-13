@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace HealthyFoods.Repositories
 {
-    public class RecipeRepository : Repository<Recipe>, IRepository<Recipe>
+        public class MealTypeRepository : Repository<MealType>, IRepository<MealType>
     {
-        public RecipeRepository(dbContext context) : base(context)
+        public MealTypeRepository(dbContext context) : base(context)
         {
 
         }
