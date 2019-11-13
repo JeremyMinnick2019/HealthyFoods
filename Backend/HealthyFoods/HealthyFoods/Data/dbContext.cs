@@ -24,8 +24,11 @@ namespace HealthyFoods.Data
             }
             protected override void OnModelCreating(ModelBuilder modelBuilder)
             {
+            modelBuilder.Entity<Recipe>().HasData();
+            modelBuilder.Entity<MainIngredient>().HasData();
+            modelBuilder.Entity<MealType>().HasData();
 
-            }
+        }
         }
     
 }
