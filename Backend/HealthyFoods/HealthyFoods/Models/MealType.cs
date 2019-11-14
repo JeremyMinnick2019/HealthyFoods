@@ -7,12 +7,11 @@ namespace HealthyFoods.Models
 {
     public class MealType
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Type { get; set; }
-        
 
-
-        //public virtual ICollection<Albums> Albums { get; set; }
+        public int MainIngredientId { get; set; }
+        public MainIngredient MainIngredient { get; set; }
 
         public MealType()
         {
@@ -21,7 +20,7 @@ namespace HealthyFoods.Models
 
         public MealType(int id, string type)
         {
-            ID = id;
+            Id = id;
             Type = type;
 
         }
