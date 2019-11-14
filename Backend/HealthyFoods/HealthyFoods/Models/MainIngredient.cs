@@ -9,6 +9,7 @@ namespace HealthyFoods.Models
     {
         public int Id { get; set; }
         public string Ingredient { get; set; }
+        public string Image { get; set; }
 
         public ICollection<MealType> MealType { get; set; }
         public virtual ICollection<Recipe> Recipe { get; set; }
