@@ -12,8 +12,8 @@ namespace HealthyFoods.Models
         public string Calorie { get; set; }
         public string Instructions { get; set; }
 
-
-        public virtual ICollection<MainIngredient> MainIngredient { get; set; }
+        public int MainIngredientId { get; set; }
+        public MainIngredient MainIngredient { get; set; }
 
         public Recipe()
         {
