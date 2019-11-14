@@ -19,10 +19,11 @@ namespace HealthyFoods.Models
         }
 
 
-        public MainIngredient(int id, string ingredient)
+        public MainIngredient(int id, string ingredient, string image)
         {
             Id = id;
             Ingredient = ingredient;
+            
 
         }
 
