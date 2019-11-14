@@ -6,9 +6,9 @@ export default function MainIngredient(mainingredient) {
     ${mainingredient
       .map(mainingredientPage => {
         return `
-             <li class="select-album" id="album">
+             <li class="mainingredient-list" id="mainingredient">
                 <h2>${mainingredientPage.ingredient}</h2>
-                <p><input class="album_id" type="hidden" value="${mainingredientPage.Id}"></p>
+                <p><input class="mainingredient_id" type="hidden" value="${mainingredientPage.Id}"></p>
              </li>
         `;
       })
