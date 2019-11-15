@@ -14,7 +14,6 @@ export default function MealType(mealtype) {
              <li class="mealtype-list" id="mealtype">
                 <h2>${mealtypePage.type}</h2>
                 <p><input class="mealtype_id" type="hidden" value="${mealtypePage.id}"></p>
-                <p><input class="mealtype_id" type="hidden" value="${mealtypePage.mainingredientid}"></p>
                 <button class="edit-MealType_submit">Edit</button>
                 <button class="delete-MealType_submit">Delete</button>
              </li>

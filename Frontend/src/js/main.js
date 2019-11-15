@@ -18,8 +18,6 @@ function pageBuild(){
     mealtypenav();
     recipenav();
     mainingredient();
-    mealtype();
-    recipe();
 }
 
 function nav(){
@@ -70,12 +68,9 @@ app.addEventListener("click", function() {
         ".update-MealType_id").value;
     const mealtypeType = event.target.parentElement.querySelector(
         ".update-MealType_type").value;
-        const idmainingredient = event.target.parentElement.querySelector(
-            ".update-MealType_MainIngredientId").value;
     const mealtypeData = {
         id: mealtypeid,
         type: mealtypeType,
-        mainingredientId: idmainingredient
     };
 
     apiActions.putRequest(
@@ -90,17 +85,16 @@ app.addEventListener("click", function() {
 app.addEventListener("click", function(){
     if(event.target.classList.contains("add-MealType_submit")){
         const addMealtype = event.target.parentElement.querySelector(
-            ".add-MealType"        
-        ).value;
+            ".update-MealType_type").value;
         console.log(addMealtype);
         apiActions.postRequest
         (`https://localhost:44339/api/MealType`, 
         {
-            Type: addMealtype
+            type: addMealtype
         },
-        Type => {
-            console.log(Type);
-            document.querySelector("#app").innerHTML = MealType(Type);
+        type => {
+            console.log(type);
+            document.querySelector("#app").innerHTML = MealType(type);
         }
         )    
     }
@@ -118,4 +112,80 @@ function recipenav(){
             console.log(recipe);
         });
     });
+    const app = document.querySelector("#app")
+    app.addEventListener("click", function() {
+    if(event.target.classList.contains("delete-Recipe_submit")) {
+        const recipeid = event.target.parentElement.querySelector(".recipe_id").value;
+        console.log("delete" + recipeid);
+        apiActions.deleteRequest(`https://localhost:44339/api/MealType/${recipeid}`,
+        recipes => {
+                app.innerHTML = EditMealType(recipes);
+            })       
+    }
+});
+
+app.addEventListener("click", function() {
+    if(event.target.classList.contains("edit-Recipe_submit")) {
+        const recipeid = event.target.parentElement.querySelector(".recipe_id").value;
+        console.log("edit" + recipeid);
+        apiActions.getRequest(`https://localhost:44339/api/MealType/${recipeid}`, RecipeEDIT => {
+                app.innerHTML = EditRecipe(RecipeEDIT);
+        })        
+    }
+});
+
+app.addEventListener("click", function() {
+    if(event.target.classList.contains("update-Recipe_submit")) {
+    const RecipeTitle = event.target.parentElement.querySelector(
+        ".update-Recipe_Title").value;
+    const RecipeCalorie = event.target.parentElement.querySelector(
+        ".update-Recipe_Calorie").value;
+    const RecipeInstructions = event.target.parentElement.querySelector(
+        ".update-Recipe_Instructions").value;
+    const Recipeid = event.target.parentElement.querySelector(
+        ".update-Recipe_id").value;
+    const RecipeImage = event.target.parentElement.querySelector(
+        ".RecipeImage").value;
+    const recipeData = {
+        id: Recipeid,
+        title: RecipeTitle,
+        calorie: RecipeCalorie,
+        instructions: RecipeInstructions,
+        image: RecipeImage
+
+    };
+
+    apiActions.putRequest(
+        `https://localhost:44339/api/MealType/${recipeid}`,
+        recipeData,
+        recipes => {
+        document.querySelector("#app").innerHTML = MainIngredient(recipes);
+        })
+    }
+});
+
+app.addEventListener("click", function(){
+    if(event.target.classList.contains("add-Recipe_submit")){
+        const addTitle = event.target.parentElement.querySelector(
+            ".add-Title").value;
+        const addCalorie = event.target.parentElement.querySelector(
+            ".add-Calorie").value;
+        const addInstructions = event.target.parentElement.querySelector(
+            ".add-Instructions").value;
+        console.log(addTitle);
+        apiActions.postRequest
+        (`https://localhost:44339/api/Recipe`, 
+        {
+            title: addTitle,
+            calorie: addCalorie,
+            instructions: addInstructions
+
+        },
+        recipes => {
+            console.log(recipes);
+            document.querySelector("#app").innerHTML = EditRecipe(recipes);
+        }
+        )    
+    }
+});
 }
