@@ -1,8 +1,12 @@
 import Nav from "./components/Nav"
 import apiActions from "./api/apiActions"
-import MainIngredient from "./components/MainIngredient"
 import MealType from "./components/MealType"
 import Recipe from "./components/Recipe"
+import mainingredientnav from "./MainIngredientsfunctions"
+import MainIngredient from "./components/MainIngredient"
+import EditMainIngredient from "./components/EditMainIngredient"
+import EditMealType from "./components/EditMealType"
+import EditRecipe from "./components/EditRecipe"
 
 export default () => {
     pageBuild()
@@ -11,8 +15,11 @@ export default () => {
 function pageBuild(){
     nav();
     mainingredientnav();
-    MealTypenav();
-    Recipenav()
+    mealtypenav();
+    recipenav();
+    mainingredient();
+    mealtype();
+    recipe();
 }
 
 function nav(){
@@ -20,27 +27,90 @@ function nav(){
     nav.innerHTML = Nav()
 }
 
-function mainingredientnav(){
-    const navMainIngredient = document.querySelector("#MainIngredient");
-    navMainIngredient.addEventListener("click", function(){
-        apiActions.getRequest("https://localhost:44339/api/MainIngredient", mainingredient => {
-            document.querySelector("#app").innerHTML = MainIngredient(mainingredient);
-            console.log(mainingredient);
-        });
-    });
+function mainingredient() {
+    mainingredientnav()
 }
 
-function MealTypenav(){
+/* start of mealtype */
+
+function mealtypenav(){
     const navMealType = document.querySelector("#MealType");
     navMealType.addEventListener("click", function(){
-        apiActions.getRequest("https://localhost:44339/api/MealType", mealtype => {
+        apiActions.getRequest('https://localhost:44339/api/MealType', mealtype => {
             document.querySelector("#app").innerHTML = MealType(mealtype);
             console.log(mealtype);
         });
     });
+
+    const app = document.querySelector("#app")
+    app.addEventListener("click", function() {
+    if(event.target.classList.contains("delete-MealType_submit")) {
+        const mealtypeid = event.target.parentElement.querySelector(".mealtype_id").value;
+        console.log("delete" + mealtypeid);
+        apiActions.deleteRequest(`https://localhost:44339/api/MealType/${mealtypeid}`,
+        mealtypes => {
+                app.innerHTML = EditMealType(mealtypes);
+            })       
+    }
+});
+
+app.addEventListener("click", function() {
+    if(event.target.classList.contains("edit-MealType_submit")) {
+        const mealtypeid = event.target.parentElement.querySelector(".mealtype_id").value;
+        console.log("edit" + mealtypeid);
+        apiActions.getRequest(`https://localhost:44339/api/MealType/${mealtypeid}`, MealTypeEDIT => {
+                app.innerHTML = EditMealType(MealTypeEDIT);
+        })        
+    }
+});
+
+app.addEventListener("click", function() {
+    if(event.target.classList.contains("update-MealType_submit")) {
+    const mealtypeid = event.target.parentElement.querySelector(
+        ".update-MealType_id").value;
+    const mealtypeType = event.target.parentElement.querySelector(
+        ".update-MealType_type").value;
+        const idmainingredient = event.target.parentElement.querySelector(
+            ".update-MealType_MainIngredientId").value;
+    const mealtypeData = {
+        id: mealtypeid,
+        type: mealtypeType,
+        mainingredientId: idmainingredient
+    };
+
+    apiActions.putRequest(
+        `https://localhost:44339/api/MealType/${mealtypeid}`,
+        mealtypeData,
+        mealtypes => {
+        document.querySelector("#app").innerHTML = MainIngredient(mealtypes);
+        })
+    }
+});
+
+app.addEventListener("click", function(){
+    if(event.target.classList.contains("add-MealType_submit")){
+        const addMealtype = event.target.parentElement.querySelector(
+            ".add-MealType"        
+        ).value;
+        console.log(addMealtype);
+        apiActions.postRequest
+        (`https://localhost:44339/api/MealType`, 
+        {
+            Type: addMealtype
+        },
+        Type => {
+            console.log(Type);
+            document.querySelector("#app").innerHTML = MealType(Type);
+        }
+        )    
+    }
+});
+
+/* start of recipe */
+
 }
 
-function Recipenav(){
+function recipenav(){
     const navRecipe = document.querySelector("#Recipe");
     navRecipe.addEventListener("click", function(){
         apiActions.getRequest("https://localhost:44339/api/Recipe", recipe => {
