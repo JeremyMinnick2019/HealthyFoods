@@ -1,0 +1,16 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+
+
+body
+{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)), url(Images/Cover.jfif);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
