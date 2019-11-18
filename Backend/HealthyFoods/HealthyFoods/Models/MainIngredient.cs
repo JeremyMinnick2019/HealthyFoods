@@ -11,9 +11,6 @@ namespace HealthyFoods.Models
         public string Ingredient { get; set; }
         public string Image { get; set; }
 
-        public ICollection<MealType> MealType { get; set; }
-        public virtual ICollection<Recipe> Recipe { get; set; }
-
         public MainIngredient()
         {
         }

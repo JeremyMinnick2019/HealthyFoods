@@ -28,7 +28,6 @@ namespace HealthyFoods.Data
                 new Recipe()
                 {
                     Id = 1,
-                    MainIngredientId = 1,
                     Image = "/Images/chips-and-cheese.jpg",
                     Title = "Chips and Cheese",
                     Calorie = "250",
@@ -38,7 +37,6 @@ namespace HealthyFoods.Data
                 new Recipe()
                 {
                     Id = 2,
-                    MainIngredientId = 1,
                     Image = "/Images/mac-and-cheese.jpg",
                     Title = "Macaroni and Cheese",
                     Calorie = "550",
@@ -48,7 +46,6 @@ namespace HealthyFoods.Data
                 new Recipe()
                 {
                     Id = 3,
-                    MainIngredientId = 2,
                     Image = "/Images/fried-chicken.jpg",
                     Title = "Fried Chicken",
                     Calorie = "650",
@@ -58,7 +55,6 @@ namespace HealthyFoods.Data
                 new Recipe()
                 {
                     Id = 4,
-                    MainIngredientId = 2,
                     Image = "/Images/baked-chicken.jpg",
                     Title = "Baked Chicken",
                     Calorie = "750",
@@ -68,7 +64,6 @@ namespace HealthyFoods.Data
                 new Recipe()
                 {
                     Id = 5,
-                    MainIngredientId = 3,
                     Image = "/Images/grilled-steak.jpg",
                     Title = "Grilled Steak",
                     Calorie = "720",
@@ -77,7 +72,6 @@ namespace HealthyFoods.Data
                 },
                 new Recipe()
                 {
-                    MainIngredientId = 3,
                     Id = 6,
                     Image = "/Images/steak-tartare.jpg",
                     Title = "Steak Tartare",
@@ -88,7 +82,6 @@ namespace HealthyFoods.Data
                 new Recipe()
                 {
                     Id = 7,
-                    MainIngredientId = 4,
                     Image = "/Images/tomato-soup.jpg",
                     Title = "Tomato Soup",
                     Calorie = "120",
@@ -98,7 +91,6 @@ namespace HealthyFoods.Data
                 new Recipe()
                 {
                     Id = 8,
-                    MainIngredientId = 4,
                     Image = "/Images/fried-tomato.jpg",
                     Title = "Fried Tomatos",
                     Calorie = "220",
@@ -108,7 +100,6 @@ namespace HealthyFoods.Data
                 new Recipe()
                 {
                     Id = 9,
-                    MainIngredientId = 5,
                     Image = "/Images/peanut-butter-cookies.jpg",
                     Title = "Special Cookies",
                     Calorie = "320",
@@ -118,7 +109,6 @@ namespace HealthyFoods.Data
                 new Recipe()
                 {
                     Id = 10,
-                    MainIngredientId = 5,
                     Image = "/Images/biscuits.jpg",
                     Title = "Biscuits",
                     Calorie = "310",
@@ -128,7 +118,6 @@ namespace HealthyFoods.Data
                 new Recipe()
                 {
                     Id = 11,
-                    MainIngredientId = 6,
                     Image = "/Images/cake.jpg",
                     Title = "Chocolate Cake",
                     Calorie = "710",
@@ -138,7 +127,6 @@ namespace HealthyFoods.Data
                 new Recipe()
                 {
                     Id = 12,
-                    MainIngredientId = 6,
                     Image = "/Images/chocolate-bar.jpg",
                     Title = "Chocolate Bar",
                     Calorie = "410",
@@ -193,37 +181,31 @@ namespace HealthyFoods.Data
                 {
                     Id = 1,
                     Type = "Breakfast, Dessert",
-                    MainIngredientId = 5
                 },
                 new MealType()
                 {
                     Id = 2,
                     Type = "Dinner",
-                    MainIngredientId = 2
                 },
                 new MealType()
                 {
                     Id = 3,
                     Type = "Dinner",
-                    MainIngredientId = 3
                 },
                 new MealType()
                 {
                     Id = 4,
                     Type = "Lunch, Dinner",
-                    MainIngredientId = 4
                 },
                 new MealType()
                 {
                     Id = 5,
                     Type = "Dessert",
-                    MainIngredientId = 6
                 },
                 new MealType()
                 {
                     Id = 6,
                     Type = "Snack",
-                    MainIngredientId = 1
                 }
 
                 );

@@ -50,8 +50,8 @@ namespace HealthyFoods.Controllers
         [HttpDelete("{id}")]
         public IEnumerable<MainIngredient> Delete(int id)
         {
-            var deleteAlbum = mainingredientRepo.GetById(id);
-            mainingredientRepo.Delete(deleteAlbum);
+            var deleteMainIngredient = mainingredientRepo.GetById(id);
+            mainingredientRepo.Delete(deleteMainIngredient);
             return mainingredientRepo.GetAll();
         }
     }

@@ -13,9 +13,6 @@ namespace HealthyFoods.Models
         public string Instructions { get; set; }
         public string Image { get; set; }
 
-        public int MainIngredientId { get; set; }
-        public MainIngredient MainIngredient { get; set; }
-
         public Recipe()
         {
         }
